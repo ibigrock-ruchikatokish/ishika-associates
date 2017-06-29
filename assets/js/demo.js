@@ -43,15 +43,12 @@
    * https://developers.google.com/maps/documentation/javascript/reference#MapOptions
    */
   var mapOptions = {
-    zoom: 10,
-    center: new google.maps.LatLng(33.74229160384012, -117.86845207214355),
+    zoom: 17,
+    center: new google.maps.LatLng(28.6669124, 77.4780495),
     // Disable scrolling wheel for usability purposes
     scrollwheel: false,
     zoomControl: true,
     mapTypeControl: true,
-    autocomplete: {
-      componentRestrictions: {'country': 'us'}
-    },
     mapTypeControlOptions: {
     position: google.maps.ControlPosition.LEFT_TOP
     },
@@ -92,9 +89,9 @@
   initGoogleMap('.js-map-canvas-contact', window.demodata[3]);
   initBtnDemo('.js-btn-demo');
   initPopovers('.js-popover');
-  initGeocoderGoogleMap('.js-map-location-dashboard-submit', {lat: 37.7749295, lng: -122.41941550000001});
-  initGeocoderGoogleMap('.js-map-location-dashboard', {lat: 37.7749295, lng: -122.41941550000001});
-  initGeocoderGoogleMap('.js-map-location-dashboard-hidden', {lat: 37.7749295, lng: -122.41941550000001});
+  initGeocoderGoogleMap('.js-map-location-dashboard-submit', {lat: 28.6669124, lng: 77.4780495});
+  initGeocoderGoogleMap('.js-map-location-dashboard', {lat: 28.6669124, lng: 77.4780495});
+  initGeocoderGoogleMap('.js-map-location-dashboard-hidden', {lat: 28.6669124, lng: 77.4780495});
   initLeafletMap('.js-map-canvas-leaflet', window.demodata);
 
 
@@ -810,7 +807,7 @@
          * Please place here all the code that needs the google map object
          */
         function () {
-          var map = new google.maps.Map($mapCanvas[0], _.merge(mapOptions, {zoom: 7, coordinates : coordinates }));
+          var map = new google.maps.Map($mapCanvas[0], _.merge(mapOptions, {zoom: 17, coordinates : coordinates }));
 
           /**
            * app.createMarker is a helper which contains
