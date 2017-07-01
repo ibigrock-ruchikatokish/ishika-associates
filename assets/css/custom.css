@@ -13,6 +13,7 @@
 	text-align: center;
 }
 
-.inquiry{
-	text-align : center;
+.btn-round{
+	border-radius: 25px;
+	border: 1px solid black;
 }

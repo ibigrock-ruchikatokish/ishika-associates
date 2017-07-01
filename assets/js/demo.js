@@ -95,6 +95,7 @@
   initLeafletMap('.js-map-canvas-leaflet', window.demodata);
 
 
+
   /***************************************************************
    * Common javascript code used on most of the pages
    * You can place here the code that is run on every page.
@@ -1289,7 +1290,7 @@
      * See http://leafletjs.com/reference.html
      * for more examples and options
      ==============================================================*/
-    var coordinates = new L.LatLng(33.74229160384012, -117.86845207214355);
+    var coordinates = new L.LatLng(28.6669124, 77.4780495);
     var firstRun = false;
     var map;
     app.createMap(
