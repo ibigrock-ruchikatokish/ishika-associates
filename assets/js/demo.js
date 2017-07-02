@@ -1371,4 +1371,5 @@
       "</strong></span> <a  class='map__more' href='property_details.html'>Details</a>";
   }
 
+
 })(jQuery);

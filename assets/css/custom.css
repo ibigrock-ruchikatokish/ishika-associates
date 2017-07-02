@@ -17,3 +17,8 @@
 	border-radius: 25px;
 	border: 1px solid black;
 }
+
+.modal-title{
+	font-size: large;
+	font-weight: bold;
+}
