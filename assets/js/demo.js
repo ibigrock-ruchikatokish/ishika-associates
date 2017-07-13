@@ -44,7 +44,7 @@
    */
   var mapOptions = {
     zoom: 17,
-    center: new google.maps.LatLng(28.6669124, 77.4780495),
+    center: new google.maps.LatLng(28.666087, 77.480829),
     // Disable scrolling wheel for usability purposes
     scrollwheel: false,
     zoomControl: true,
@@ -89,9 +89,9 @@
   initGoogleMap('.js-map-canvas-contact', window.demodata[3]);
   initBtnDemo('.js-btn-demo');
   initPopovers('.js-popover');
-  initGeocoderGoogleMap('.js-map-location-dashboard-submit', {lat: 28.6669124, lng: 77.4780495});
-  initGeocoderGoogleMap('.js-map-location-dashboard', {lat: 28.6669124, lng: 77.4780495});
-  initGeocoderGoogleMap('.js-map-location-dashboard-hidden', {lat: 28.6669124, lng: 77.4780495});
+  initGeocoderGoogleMap('.js-map-location-dashboard-submit', {lat: 28.666087, lng: 77.480829});
+  initGeocoderGoogleMap('.js-map-location-dashboard', {lat: 28.666087, lng: 77.480829});
+  initGeocoderGoogleMap('.js-map-location-dashboard-hidden', {lat: 28.666087, lng: 77.480829});
   initLeafletMap('.js-map-canvas-leaflet', window.demodata);
 
 
@@ -808,8 +808,32 @@
          * Please place here all the code that needs the google map object
          */
         function () {
-          var map = new google.maps.Map($mapCanvas[0], _.merge(mapOptions, {zoom: 17, coordinates : coordinates }));
+          var map = new google.maps.Map($mapCanvas[0], _.merge(mapOptions, {zoom: 18, coordinates : coordinates }));
+          
+          //Creating a Marker object
+          var myLatlng = new google.maps.LatLng(28.666087, 77.480829)         
+          var marker = new google.maps.Marker({
+          position: myLatlng,
+          animation: google.maps.Animation.DROP,
+          title:"Ishika Associates"
+          });
 
+          //Creating Info Window
+          var address = "<div id='heading'> <h4> Ishika Associates </h4> </div>"+
+                        "<div id='content'> <p>Shop No - 3 GF, <br> Mahagun Puram, NH-24 , <br> Ghaziabad, Uttar Pradesh - 201002, <br> India </p> </div>" 
+          var infowindow = new google.maps.InfoWindow({
+          content: address
+          });
+
+          //Adding Marker object to the map
+          marker.setMap(map);
+
+          //Adding Info Window to Marker
+          marker.addListener('click', function() {
+          infowindow.open(map, marker);
+          });
+
+        
           /**
            * app.createMarker is a helper which contains
            * preconfigured Marker object (see docs https://developers.google.com/maps/documentation/javascript/markers)
@@ -915,9 +939,11 @@
               // You can pass directly the 'white' or 'dark' value or get it some other way
               $mapCanvas.data('infoboxTheme')
             );
+
             // Save the created marker for later use for clustering
             markers.push(marker);
           });
+
 
           /**
            * Wrapper object for MarkerClustererPlus library preconfigured to work with our theme
@@ -971,7 +997,7 @@
        * Please place here all the code that needs the google map object
        */
       function () {
-        var map = new google.maps.Map($mapCanvas[0], _.merge(mapOptions, {zoom: 7, coordinates : coordinates }));
+        var map = new google.maps.Map($mapCanvas[0], _.merge(mapOptions, {zoom: 17, coordinates : coordinates }));
         var infoboxHtml = generateMarkerHTML(property);
 
         /**
@@ -1209,6 +1235,7 @@
             draggable: true
           });
 
+
           google.maps.event.addListener(marker, 'dragend', function () {
             placeMarker(marker.getPosition());
           });
@@ -1290,7 +1317,7 @@
      * See http://leafletjs.com/reference.html
      * for more examples and options
      ==============================================================*/
-    var coordinates = new L.LatLng(28.6669124, 77.4780495);
+    var coordinates = new L.LatLng(28.666087, 77.480829);
     var firstRun = false;
     var map;
     app.createMap(
@@ -1354,6 +1381,7 @@
         }
 
         firstRun = true;
+
       });
   }
 
